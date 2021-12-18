@@ -1,6 +1,6 @@
 package com.stefano.components.logicGates.singleInput;
 
-import com.stefano.components.binary.TruthTable;
+import com.stefano.binary.TruthTable;
 import com.stefano.components.logicGates.Gate;
 
 public abstract class SingleInputGate extends Gate
