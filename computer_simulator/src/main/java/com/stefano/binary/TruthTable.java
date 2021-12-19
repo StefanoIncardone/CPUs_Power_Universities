@@ -1,58 +1,14 @@
 package com.stefano.binary;
 
-import com.stefano.components.logicGates.singleInput.SingleInputLogicGate;
-import com.stefano.components.logicGates.doubleInput.DoubleInputLogicGate;
-import com.stefano.components.math.adders.HalfAdder;
+import com.stefano.components.Component;
 
 public class TruthTable
 {
-	public static String create( SingleInputLogicGate gate )
+	public static String create( Component component )
 	{
-		String[] columns = gate.getTruthTableColumnNames();
-		int[][] data = gate.getTable();
-		
-		int row = 0;
-		for( int A : new int[]{ 0, 1 } )
-		{
-			gate.populateTableRow( data, row, A );
-			row++;
-		}
-
-		return elaborateData( columns, data );
-	}
-
-	public static String create( DoubleInputLogicGate gate )
-	{
-		String[] columns = gate.getTruthTableColumnNames();
-		int[][] data = gate.getTable();
-
-		int row = 0;
-		for( int A : new int[]{ 0, 1 } )
-		{
-			for( int B : new int[]{ 0 , 1 } )
-			{
-				gate.populateTableRow( data, row, A, B );
-				row++;
-			}
-		}
-
-		return elaborateData( columns, data );
-	}
-
-	public static String create( HalfAdder halfAdder )
-	{
-		String[] columns = halfAdder.getTruthTableColumnNames();
-		int[][] data = halfAdder.getTable();
-
-		int row = 0;
-		for( int A : new int[]{ 0, 1 } )
-		{
-			for( int B : new int[]{ 0 , 1 } )
-			{
-				halfAdder.populateTableRow( data, row, A, B );
-				row++;
-			}
-		}
+		String[] columns = component.getTruthTableColumnNames();
+		int[][] data = component.getTable();
+		component.populateTruthTable( data );
 
 		return elaborateData( columns, data );
 	}

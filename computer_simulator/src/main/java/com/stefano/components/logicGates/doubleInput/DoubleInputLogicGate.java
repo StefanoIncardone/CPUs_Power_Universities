@@ -17,7 +17,21 @@ public abstract class DoubleInputLogicGate implements DoubleInputComponent
 	}
 
 	@Override
-	public void populateTableRow( int[][] data, int row, int A, int B )
+	public void populateTruthTable( int[][] data )
+	{
+		int row = 0;
+		for( int A : new int[]{ 0, 1 } )
+		{
+			for( int B : new int[]{ 0 , 1 } )
+			{
+				this.populateTruthTableRow( data, row, A, B );
+				row++;
+			}
+		}
+	}
+
+	@Override
+	public void populateTruthTableRow( int[][] data, int row, int A, int B )
 	{
 		data[ row ][ DoubleInputComponent.INPUT_A ] = A;
 		data[ row ][ DoubleInputComponent.INPUT_B ] = B;
