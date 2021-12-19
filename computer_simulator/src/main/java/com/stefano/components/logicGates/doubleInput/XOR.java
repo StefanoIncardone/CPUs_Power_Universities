@@ -1,9 +1,13 @@
 package com.stefano.components.logicGates.doubleInput;
 
-public abstract class XOR extends DoubleInputGate
+public class XOR extends DoubleInputGate
 {
-	public static int out( int A, int B )
+	private final OR or = new OR();
+	private final NIMPLY nimply = new NIMPLY();
+
+	@Override
+	public int out( int A, int B )
 	{
-		return OR.out( NIMPLY.out( A, B ), NIMPLY.out( B, A ) );
+		return or.out( nimply.out( A, B ), nimply.out( B, A ) );
 	}
 }

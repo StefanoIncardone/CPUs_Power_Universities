@@ -1,6 +1,6 @@
 package com.stefano;
 
-import com.stefano.components.logicGates.Gate;
+import com.stefano.binary.TruthTable;
 import com.stefano.components.logicGates.doubleInput.*;
 import com.stefano.components.logicGates.singleInput.*;
 
@@ -10,19 +10,19 @@ public class CPU
 	{
 		System.out.println
 		(
-														"\n" +
-			Gate.truthTable( TAUTOLOGY.class )		+	"\n" +
-			Gate.truthTable( CONTRADICTION.class )	+	"\n" +
-			Gate.truthTable( BUFFER.class )			+	"\n" +
-			Gate.truthTable( NOT.class )			+	"\n" +
-			Gate.truthTable( OR.class )				+	"\n" +
-			Gate.truthTable( NOR.class )			+	"\n" +
-			Gate.truthTable( AND.class )			+	"\n" +
-			Gate.truthTable( NAND.class )			+	"\n" +
-			Gate.truthTable( XOR.class )			+	"\n" +
-			Gate.truthTable( XNOR.class )			+	"\n" +
-			Gate.truthTable( IMPLY.class )			+	"\n" +
-			Gate.truthTable( NIMPLY.class )			+	"\n"
+															"\n" +
+			TruthTable.create( new TAUTOLOGY() )		+	"\n" +
+			TruthTable.create( new CONTRADICTION() )	+	"\n" +
+			TruthTable.create( new BUFFER() )			+	"\n" +
+			TruthTable.create( new NOT() )				+	"\n" +
+			TruthTable.create( new OR() )				+	"\n" +
+			TruthTable.create( new NOR() )				+	"\n" +
+			TruthTable.create( new XOR() )				+	"\n" +
+			TruthTable.create( new XNOR() )				+	"\n" +
+			TruthTable.create( new AND() )				+	"\n" +
+			TruthTable.create( new NAND() )				+	"\n" +
+			TruthTable.create( new IMPLY() )			+	"\n" +
+			TruthTable.create( new NIMPLY() )			+	"\n"
 		);
 	}
 }

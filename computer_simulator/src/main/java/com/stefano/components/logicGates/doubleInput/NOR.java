@@ -2,10 +2,14 @@ package com.stefano.components.logicGates.doubleInput;
 
 import com.stefano.components.logicGates.singleInput.*;
 
-public abstract class NOR extends DoubleInputGate
+public class NOR extends DoubleInputGate
 {
-	public static int out( int A, int B )
+	private final NOT not = new NOT();
+	private final OR or = new OR();
+
+	@Override
+	public int out( int A, int B )
 	{
-		return NOT.out( OR.out( A, B ) );
+		return not.out( or.out( A, B ) );
 	}
 }
