@@ -3,6 +3,7 @@ package com.stefano;
 import com.stefano.binary.TruthTable;
 import com.stefano.components.logicGates.doubleInput.*;
 import com.stefano.components.logicGates.singleInput.*;
+import com.stefano.components.math.adders.HalfAdder;
 
 public class CPU 
 {
@@ -22,7 +23,8 @@ public class CPU
 			TruthTable.create( new AND() )				+	"\n" +
 			TruthTable.create( new NAND() )				+	"\n" +
 			TruthTable.create( new IMPLY() )			+	"\n" +
-			TruthTable.create( new NIMPLY() )			+	"\n"
+			TruthTable.create( new NIMPLY() )			+	"\n" +
+			TruthTable.create( new HalfAdder() )			+	"\n"
 		);
 	}
 }

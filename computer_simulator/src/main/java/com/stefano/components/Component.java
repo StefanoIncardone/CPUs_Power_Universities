@@ -1,6 +1,8 @@
 package com.stefano.components;
 
-public class Component
+public interface Component
 {
+	public abstract String[] getTruthTableColumnNames();
 	
+	public abstract int[][] getTable();
 }
