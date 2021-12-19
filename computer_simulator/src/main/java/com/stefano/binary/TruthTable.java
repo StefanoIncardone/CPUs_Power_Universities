@@ -1,52 +1,55 @@
 package com.stefano.binary;
 
-import com.stefano.components.logicGates.doubleInput.DoubleInputGate;
-import com.stefano.components.logicGates.singleInput.SingleInputGate;
+import com.stefano.components.logicGates.singleInput.SingleInputLogicGate;
+import com.stefano.components.logicGates.doubleInput.DoubleInputLogicGate;
+import com.stefano.components.math.adders.HalfAdder;
 
 public class TruthTable
 {
-	public static String create( SingleInputGate gate )
+	public static String create( SingleInputLogicGate gate )
 	{
-		final int NUMBER_OF_INPUTS = 1;
-		final int NUMBER_OF_COLUMNS = NUMBER_OF_INPUTS + 1;
-		final int INPUT = 0;
-		final int OUTPUT = 1;
-
-		String[] columns = { "A", gate.getClass().getSimpleName() + " A" };
-		int[][] data = new int[ (int) Math.pow( 2, NUMBER_OF_INPUTS ) ][ NUMBER_OF_COLUMNS ];
+		String[] columns = gate.getTruthTableColumnNames();
+		int[][] data = gate.getTable();
 		
 		int row = 0;
 		for( int A : new int[]{ 0, 1 } )
 		{
-			data[ row ][ INPUT ] = A;
-			data[ row ][ OUTPUT ] = gate.out( A );
-			
+			gate.populateTableRow( data, row, A );
 			row++;
 		}
 
 		return elaborateData( columns, data );
 	}
 
-	public static String create( DoubleInputGate gate )
+	public static String create( DoubleInputLogicGate gate )
 	{
-		final int NUMBER_OF_INPUTS = 2;
-		final int NUMBER_OF_COLUMNS = NUMBER_OF_INPUTS + 1;
-		final int INPUT_A = 0;
-		final int INPUT_B = 1;
-		final int OUTPUT = 2;
-
-		String[] columns = { "A", "B", "A " + gate.getClass().getSimpleName() + " B" };
-		int[][] data = new int[ (int) Math.pow( 2, NUMBER_OF_INPUTS ) ][ NUMBER_OF_COLUMNS ];
+		String[] columns = gate.getTruthTableColumnNames();
+		int[][] data = gate.getTable();
 
 		int row = 0;
 		for( int A : new int[]{ 0, 1 } )
 		{
 			for( int B : new int[]{ 0 , 1 } )
 			{
-				data[ row ][ INPUT_A ] = A;
-				data[ row ][ INPUT_B ] = B;
-				data[ row ][ OUTPUT ] = gate.out( A, B );
+				gate.populateTableRow( data, row, A, B );
+				row++;
+			}
+		}
 
+		return elaborateData( columns, data );
+	}
+
+	public static String create( HalfAdder halfAdder )
+	{
+		String[] columns = halfAdder.getTruthTableColumnNames();
+		int[][] data = halfAdder.getTable();
+
+		int row = 0;
+		for( int A : new int[]{ 0, 1 } )
+		{
+			for( int B : new int[]{ 0 , 1 } )
+			{
+				halfAdder.populateTableRow( data, row, A, B );
 				row++;
 			}
 		}
@@ -64,9 +67,9 @@ public class TruthTable
 		}
 		table.append( "\n" );
 
-		for( int index = 0, tableLength = table.length(); index < tableLength; index++ )
+		for( char character : table.toString().toCharArray() )
 		{
-			table.append( (table.toString().toCharArray()[ index ] == '|') ? "+" : "-" );
+			table.append( (character == '|') ? "+" : "-" );
 		}
 		table.append( "\n" );
 

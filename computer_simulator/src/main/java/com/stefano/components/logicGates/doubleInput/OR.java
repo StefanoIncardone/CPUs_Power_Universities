@@ -1,6 +1,6 @@
 package com.stefano.components.logicGates.doubleInput;
 
-public class OR extends DoubleInputGate
+public class OR extends DoubleInputLogicGate
 {
 	@Override
 	public int out( int A, int B )

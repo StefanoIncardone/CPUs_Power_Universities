@@ -1,6 +1,6 @@
 package com.stefano.components.logicGates.doubleInput;
 
-public class XOR extends DoubleInputGate
+public class XOR extends DoubleInputLogicGate
 {
 	private final OR or = new OR();
 	private final NIMPLY nimply = new NIMPLY();
