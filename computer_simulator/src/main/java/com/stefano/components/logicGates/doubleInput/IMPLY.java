@@ -8,8 +8,13 @@ public class IMPLY extends DoubleInputLogicGate
 	private final NOT not = new NOT();
 
 	@Override
-	public int out( int A, int B )
+	public int[] out( int[] input )
 	{
-		return or.out( not.out( A ), B );
+		final int A = input[ INPUT_COL_A ];
+		final int B = input[ INPUT_COL_B ];
+
+		int not_A = not.out( new int[]{ A } )[ OUTPUT ];
+
+		return or.out( new int[]{ not_A, B } );
 	}
 }

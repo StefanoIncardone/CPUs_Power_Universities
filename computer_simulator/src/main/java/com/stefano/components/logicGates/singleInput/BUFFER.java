@@ -3,8 +3,10 @@ package com.stefano.components.logicGates.singleInput;
 public class BUFFER extends SingleInputLogicGate
 {
 	@Override
-	public int out( int A )
+	public int[] out( int[] input )
 	{
-		return A;
+		final int A = input[ INPUT_COL ];
+
+		return new int[]{ A };
 	}
 }

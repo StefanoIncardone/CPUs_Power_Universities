@@ -8,8 +8,8 @@ public class NAND extends DoubleInputLogicGate
 	private final AND and = new AND();
 
 	@Override
-	public int out( int A, int B )
+	public int[] out( int[] input )
 	{
-		return not.out( and.out( A , B ) );
+		return not.out( and.out( input ) );
 	}
 }

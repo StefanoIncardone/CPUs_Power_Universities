@@ -3,8 +3,11 @@ package com.stefano.components.logicGates.doubleInput;
 public class OR extends DoubleInputLogicGate
 {
 	@Override
-	public int out( int A, int B )
+	public int[] out( int[] input )
 	{
-		return (A == 1) ? 1 : (B == 1) ? 1 : 0;
+		final int A = input[ INPUT_COL_A ];
+		final int B = input[ INPUT_COL_B ];
+
+		return new int[]{ (A == 1) ? 1 : (B == 1) ? 1 : 0 };
 	}
 }

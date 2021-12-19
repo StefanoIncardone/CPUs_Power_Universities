@@ -2,6 +2,8 @@ package com.stefano.components.logicGates.doubleInput;
 
 import static org.junit.Assert.*;
 
+import com.stefano.components.logicGates.LogicGate;
+
 import org.junit.Test;
 
 public class DoubleInputGatesTest 
@@ -18,72 +20,72 @@ public class DoubleInputGatesTest
 	@Test
 	public void ORgateShouldReturnZeroOnlyWhenBothInputsAreZero()
 	{
-		assertEquals( 0, or.out( 0, 0 ) );
-		assertEquals( 1, or.out( 0, 1 ) );
-		assertEquals( 1, or.out( 1, 0 ) );
-		assertEquals( 1, or.out( 1, 1 ) );
+		assertEquals( 0, or.out( new int[]{ 0, 0 } )[ LogicGate.OUTPUT ] );
+		assertEquals( 1, or.out( new int[]{ 0, 1 } )[ LogicGate.OUTPUT ] );
+		assertEquals( 1, or.out( new int[]{ 1, 0 } )[ LogicGate.OUTPUT ] );
+		assertEquals( 1, or.out( new int[]{ 1, 1 } )[ LogicGate.OUTPUT ] );
 	}
 
 	@Test
 	public void NORgateShouldReturnOneOnlyWhenBothInputsAreZero()
 	{
-		assertEquals( 1, nor.out( 0, 0 ) );
-		assertEquals( 0, nor.out( 0, 1 ) );
-		assertEquals( 0, nor.out( 1, 0 ) );
-		assertEquals( 0, nor.out( 1, 1 ) );
+		assertEquals( 1, nor.out( new int[]{ 0, 0 } )[ LogicGate.OUTPUT ] );
+		assertEquals( 0, nor.out( new int[]{ 0, 1 } )[ LogicGate.OUTPUT ] );
+		assertEquals( 0, nor.out( new int[]{ 1, 0 } )[ LogicGate.OUTPUT ] );
+		assertEquals( 0, nor.out( new int[]{ 1, 1 } )[ LogicGate.OUTPUT ] );
 	}
 
 	@Test
 	public void XORgateShouldReturnZeroWhenInputsAreTheSame()
 	{
-		assertEquals( 0, xor.out( 0, 0 ) );
-		assertEquals( 1, xor.out( 0, 1 ) );
-		assertEquals( 1, xor.out( 1, 0 ) );
-		assertEquals( 0, xor.out( 1, 1 ) );
+		assertEquals( 0, xor.out( new int[]{ 0, 0 } )[ LogicGate.OUTPUT ] );
+		assertEquals( 1, xor.out( new int[]{ 0, 1 } )[ LogicGate.OUTPUT ] );
+		assertEquals( 1, xor.out( new int[]{ 1, 0 } )[ LogicGate.OUTPUT ] );
+		assertEquals( 0, xor.out( new int[]{ 1, 1 } )[ LogicGate.OUTPUT ] );
 	}
 
 	@Test
 	public void XNORgateShouldReturnOneWhenInputsAreTheSame()
 	{
-		assertEquals( 1, xnor.out( 0, 0 ) );
-		assertEquals( 0, xnor.out( 0, 1 ) );
-		assertEquals( 0, xnor.out( 1, 0 ) );
-		assertEquals( 1, xnor.out( 1, 1 ) );
+		assertEquals( 1, xnor.out( new int[]{ 0, 0 } )[ LogicGate.OUTPUT ] );
+		assertEquals( 0, xnor.out( new int[]{ 0, 1 } )[ LogicGate.OUTPUT ] );
+		assertEquals( 0, xnor.out( new int[]{ 1, 0 } )[ LogicGate.OUTPUT ] );
+		assertEquals( 1, xnor.out( new int[]{ 1, 1 } )[ LogicGate.OUTPUT ] );
 	}
 
 	@Test
 	public void ANDgateShouldReturnOneOnlyWhenBothInputsAreOne()
 	{
-		assertEquals( 0, and.out( 0, 0 ) );
-		assertEquals( 0, and.out( 0, 1 ) );
-		assertEquals( 0, and.out( 1, 0 ) );
-		assertEquals( 1, and.out( 1, 1 ) );
+		assertEquals( 0, and.out( new int[]{ 0, 0 } )[ LogicGate.OUTPUT ] );
+		assertEquals( 0, and.out( new int[]{ 0, 1 } )[ LogicGate.OUTPUT ] );
+		assertEquals( 0, and.out( new int[]{ 1, 0 } )[ LogicGate.OUTPUT ] );
+		assertEquals( 1, and.out( new int[]{ 1, 1 } )[ LogicGate.OUTPUT ] );
 	}
 
 	@Test
 	public void NANDgateShouldReturnZeroOnlyWhenBothInputsAreOne()
 	{
-		assertEquals( 1, nand.out( 0, 0 ) );
-		assertEquals( 1, nand.out( 0, 1 ) );
-		assertEquals( 1, nand.out( 1, 0 ) );
-		assertEquals( 0, nand.out( 1, 1 ) );
+		assertEquals( 1, nand.out( new int[]{ 0, 0 } )[ LogicGate.OUTPUT ] );
+		assertEquals( 1, nand.out( new int[]{ 0, 1 } )[ LogicGate.OUTPUT ] );
+		assertEquals( 1, nand.out( new int[]{ 1, 0 } )[ LogicGate.OUTPUT ] );
+		assertEquals( 0, nand.out( new int[]{ 1, 1 } )[ LogicGate.OUTPUT ] );
 	}
 
 	@Test
 	public void IMPLYgateShouldReturnZeroOnlyWhenFirstInputIsOneAndSecondInputIsZero()
 	{
-		assertEquals( 1, imply.out( 0, 0 ) );
-		assertEquals( 1, imply.out( 0, 1 ) );
-		assertEquals( 0, imply.out( 1, 0 ) );
-		assertEquals( 1, imply.out( 1, 1 ) );
+		assertEquals( 1, imply.out( new int[]{ 0, 0 } )[ LogicGate.OUTPUT ] );
+		assertEquals( 1, imply.out( new int[]{ 0, 1 } )[ LogicGate.OUTPUT ] );
+		assertEquals( 0, imply.out( new int[]{ 1, 0 } )[ LogicGate.OUTPUT ] );
+		assertEquals( 1, imply.out( new int[]{ 1, 1 } )[ LogicGate.OUTPUT ] );
 	}
 
 	@Test
 	public void NIMPLYgateShouldReturnOneOnlyWhenFirstInputIsOneAndSecondInputIsZero()
 	{
-		assertEquals( 0, nimply.out( 0, 0 ) );
-		assertEquals( 0, nimply.out( 0, 1 ) );
-		assertEquals( 1, nimply.out( 1, 0 ) );
-		assertEquals( 0, nimply.out( 1, 1 ) );
+		assertEquals( 0, nimply.out( new int[]{ 0, 0 } )[ LogicGate.OUTPUT ] );
+		assertEquals( 0, nimply.out( new int[]{ 0, 1 } )[ LogicGate.OUTPUT ] );
+		assertEquals( 1, nimply.out( new int[]{ 1, 0 } )[ LogicGate.OUTPUT ] );
+		assertEquals( 0, nimply.out( new int[]{ 1, 1 } )[ LogicGate.OUTPUT ] );
 	}
 }
