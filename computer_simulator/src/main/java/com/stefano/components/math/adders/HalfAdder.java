@@ -1,28 +1,33 @@
 package com.stefano.components.math.adders;
 
 import com.stefano.components.DoubleInputComponent;
+import com.stefano.components.logicGates.LogicGate;
 import com.stefano.components.logicGates.doubleInput.AND;
 import com.stefano.components.logicGates.doubleInput.XOR;
 
 public class HalfAdder implements DoubleInputComponent
 {
-	public static final int OUTPUT = 0;
-	public static final int CARRY = 1;
-	public static final int CARRY_OUTPUT = DoubleInputComponent.OUTPUT + 1;
+	protected static final int INPUT_COL_A = 0;
+	protected static final int INPUT_COL_B = 1;
+	protected static final int SUM_COL = 2;
+	protected static final int CARRY_COL = 3;
 
-	public static final int NUMBER_OF_OUTPUTS = 2;
-	public static final int NUMBER_OF_COLUMNS = DoubleInputComponent.NUMBER_OF_INPUTS + NUMBER_OF_OUTPUTS;
-	
+	public static final int SUM = 0;
+	public static final int CARRY = 1;
+
+	private static final int NUMBER_OF_OUTPUTS = 2;
+	public static final int NUMBER_OF_COLUMNS = NUMBER_OF_INPUTS + NUMBER_OF_OUTPUTS;
+
 	@Override
 	public String[] getTruthTableColumnNames()
 	{
-		return new String[]{ "A", "B", "OUTPUT", "CARRY" };
+		return new String[]{ "A", "B", "SUM", "CARRY" };
 	}
 
 	@Override
 	public int[][] getTable()
 	{
-		return new int[ DoubleInputComponent.TRUTH_TABLE_ROWS ][ HalfAdder.NUMBER_OF_COLUMNS ];
+		return new int[ DoubleInputComponent.TRUTH_TABLE_ROWS ][ NUMBER_OF_COLUMNS ];
 	}
 
 	@Override
@@ -33,26 +38,29 @@ public class HalfAdder implements DoubleInputComponent
 		{
 			for( int B : new int[]{ 0 , 1 } )
 			{
-				this.populateTruthTableRow( data, row, A, B );
+				this.populateTableRow( data, row, new int[]{ A, B } );
 				row++;
 			}
 		}
 	}
 
 	@Override
-	public void populateTruthTableRow(int[][] data, int row, int A, int B)
+	public void populateTableRow(int[][] data, int row, int[] input )
 	{
-		data[ row ][ DoubleInputComponent.INPUT_A ] = A;
-		data[ row ][ DoubleInputComponent.INPUT_B ] = B;
-		data[ row ][ DoubleInputComponent.OUTPUT ] = this.out( A, B )[ HalfAdder.OUTPUT ];
-		data[ row ][ HalfAdder.CARRY_OUTPUT ] = this.out( A, B )[ HalfAdder.CARRY ];
+		int[] output = this.out( input );
+		
+		data[ row ][ INPUT_COL_A ] = input[ INPUT_COL_A ];
+		data[ row ][ INPUT_COL_B ] = input[ INPUT_COL_B ];
+		data[ row ][ SUM_COL ] = output[ SUM ];
+		data[ row ][ CARRY_COL ] = output[ CARRY ];
 	}
 
 	private final XOR xor = new XOR();
 	private final AND and = new AND();
 
-	public int[] out( int A, int B )
+	@Override
+	public int[] out( int[] input )
 	{
-		return new int[]{ xor.out( A, B ), and.out( A, B ) };
+		return new int[]{ xor.out( input )[ LogicGate.OUTPUT ], and.out( input )[ LogicGate.OUTPUT ] };
 	}
 }

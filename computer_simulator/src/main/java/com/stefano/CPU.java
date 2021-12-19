@@ -3,9 +3,10 @@ package com.stefano;
 import com.stefano.binary.TruthTable;
 import com.stefano.components.logicGates.doubleInput.*;
 import com.stefano.components.logicGates.singleInput.*;
+import com.stefano.components.math.adders.FullAdder;
 import com.stefano.components.math.adders.HalfAdder;
 
-public class CPU 
+public class CPU
 {
 	public static void main( String[] args )
 	{
@@ -24,7 +25,8 @@ public class CPU
 			TruthTable.create( new NAND() )				+	"\n" +
 			TruthTable.create( new IMPLY() )			+	"\n" +
 			TruthTable.create( new NIMPLY() )			+	"\n" +
-			TruthTable.create( new HalfAdder() )			+	"\n"
+			TruthTable.create( new HalfAdder() )		+	"\n" +
+			TruthTable.create( new FullAdder() )		+	"\n"
 		);
 	}
 }

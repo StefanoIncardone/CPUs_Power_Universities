@@ -8,8 +8,8 @@ public class NOR extends DoubleInputLogicGate
 	private final OR or = new OR();
 
 	@Override
-	public int out( int A, int B )
+	public int[] out( int[] input )
 	{
-		return not.out( or.out( A, B ) );
+		return not.out( or.out( input ) );
 	}
 }

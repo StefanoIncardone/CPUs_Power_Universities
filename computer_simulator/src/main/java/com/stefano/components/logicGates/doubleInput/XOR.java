@@ -6,8 +6,14 @@ public class XOR extends DoubleInputLogicGate
 	private final NIMPLY nimply = new NIMPLY();
 
 	@Override
-	public int out( int A, int B )
+	public int[] out( int[] input )
 	{
-		return or.out( nimply.out( A, B ), nimply.out( B, A ) );
+		final int A = input[ INPUT_COL_A ];
+		final int B = input[ INPUT_COL_B ];
+
+		int nimply_AB = nimply.out( new int[]{ A, B } )[ OUTPUT ];
+		int nimply_BA = nimply.out( new int[]{ B, A } )[ OUTPUT ];
+
+		return or.out( new int[]{ nimply_AB, nimply_BA } );
 	}
 }

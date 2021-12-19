@@ -8,8 +8,8 @@ public class XNOR extends DoubleInputLogicGate
 	private final XOR xor = new XOR();
 	
 	@Override
-	public int out( int A, int B )
+	public int[] out( int[] input )
 	{
-		return not.out( xor.out( A, B ) );
+		return not.out( xor.out( input ) );
 	}
 }
