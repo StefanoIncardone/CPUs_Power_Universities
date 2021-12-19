@@ -17,6 +17,17 @@ public abstract class SingleInputLogicGate implements SingleInputComponent
 	}
 
 	@Override
+	public void populateTruthTable( int[][] data )
+	{
+		int row = 0;
+		for( int A : new int[]{ 0, 1 } )
+		{
+			this.populateTableRow( data, row, A );
+			row++;
+		}
+	}
+
+	@Override
 	public void populateTableRow( int[][] data, int row, int A )
 	{
 		data[ row ][ SingleInputComponent.INPUT ] = A;
