@@ -2,10 +2,14 @@ package com.stefano.components.logicGates.doubleInput;
 
 import com.stefano.components.logicGates.singleInput.*;
 
-public abstract class NIMPLY extends DoubleInputGate
+public class NIMPLY extends DoubleInputGate
 {
-	public static int out( int A, int B )
+	private final IMPLY imply = new IMPLY();
+	private final NOT not = new NOT();
+
+	@Override
+	public int out( int A, int B )
 	{
-		return AND.out( A, NOT.out( B ) );
+		return not.out( imply.out( A, B ));
 	}
 }
