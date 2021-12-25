@@ -1,31 +1,42 @@
 package com.stefano;
 
-import com.stefano.binary.TruthTable;
+import com.stefano.components.Component;
+import com.stefano.components.ALU.adders.full.FullAdder;
+import com.stefano.components.ALU.adders.half.HalfAdder;
+import com.stefano.components.ALU.rippleCarryAdders.Bit_2.RCA_2;
 import com.stefano.components.logicGates.doubleInput.*;
 import com.stefano.components.logicGates.singleInput.*;
-import com.stefano.components.math.adders.*;
 
 public class Monitor
 {
+	private static final Component[] COMPONENTS = new Component[]
+	{
+		new CONTRADICTION(),
+		new TAUTOLOGY(),
+		new BUFFER(),
+		new NOT(),
+		new OR(),
+		new NOR(),
+		new XOR(),
+		new XNOR(),
+		new AND(),
+		new NAND(),
+		new IMPLY(),
+		new CIMPLY(),
+		new NIMPLY(),
+		new CNIMPLY(),
+		
+		new HalfAdder(),
+		new FullAdder(),
+
+		new RCA_2()
+	};
+
 	public static void main( String[] args )
 	{
-		System.out.println
-		(
-															"\n" +
-			TruthTable.create( new TAUTOLOGY() )		+	"\n" +
-			TruthTable.create( new CONTRADICTION() )	+	"\n" +
-			TruthTable.create( new BUFFER() )			+	"\n" +
-			TruthTable.create( new NOT() )				+	"\n" +
-			TruthTable.create( new OR() )				+	"\n" +
-			TruthTable.create( new NOR() )				+	"\n" +
-			TruthTable.create( new XOR() )				+	"\n" +
-			TruthTable.create( new XNOR() )				+	"\n" +
-			TruthTable.create( new AND() )				+	"\n" +
-			TruthTable.create( new NAND() )				+	"\n" +
-			TruthTable.create( new IMPLY() )			+	"\n" +
-			TruthTable.create( new NIMPLY() )			+	"\n" +
-			TruthTable.create( new HalfAdder() )		+	"\n" +
-			TruthTable.create( new FullAdder() )		+	"\n"
-		);
+		for( Component component : COMPONENTS )
+		{
+			System.out.print( "\n" + component.getTruthTable() + "\n" );
+		}
 	}
 }

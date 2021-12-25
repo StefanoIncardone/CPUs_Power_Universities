@@ -8,13 +8,11 @@ public class IMPLY extends TwoInputLogicGate
 	private final NOT not = new NOT();
 
 	@Override
-	public int[] out( int[] input )
+	protected byte[] out( byte[] input )
 	{
-		final int A = input[ INPUT_COL_A ];
-		final int B = input[ INPUT_COL_B ];
+		final byte A = input[ INPUT_COL_A ];
+		final byte B = input[ INPUT_COL_B ];
 
-		int not_A = not.out( new int[]{ A } )[ OUTPUT ];
-
-		return or.out( new int[]{ not_A, B } );
+		return new byte[]{ or.out( not.out( A ), B ) };
 	}
 }

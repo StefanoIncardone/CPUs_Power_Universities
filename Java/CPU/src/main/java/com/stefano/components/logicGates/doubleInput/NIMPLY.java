@@ -8,8 +8,11 @@ public class NIMPLY extends TwoInputLogicGate
 	private final NOT not = new NOT();
 
 	@Override
-	public int[] out( int[] input )
+	protected byte[] out( byte[] input )
 	{
-		return not.out( imply.out( input ));
+		final byte A = input[ INPUT_COL_A ];
+		final byte B = input[ INPUT_COL_B ];
+
+		return new byte[]{ not.out( imply.out( A, B ) ) };
 	}
 }

@@ -8,8 +8,11 @@ public class XNOR extends TwoInputLogicGate
 	private final XOR xor = new XOR();
 	
 	@Override
-	public int[] out( int[] input )
+	protected byte[] out( byte[] input )
 	{
-		return not.out( xor.out( input ) );
+		final byte A = input[ INPUT_COL_A ];
+		final byte B = input[ INPUT_COL_B ];
+
+		return new byte[]{ not.out( xor.out( A, B ) ) };
 	}
 }

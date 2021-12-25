@@ -3,10 +3,10 @@ package com.stefano.components.logicGates.singleInput;
 public class NOT extends OneInputLogicGate
 {
 	@Override
-	public int[] out( int[] input )
+	protected byte[] out( byte[] input )
 	{
-		final int A = input[ INPUT_COL ];
+		final byte A = input[ INPUT_COL ];
 
-		return new int[]{ (A == 1) ? 0 : 1 };
+		return new byte[]{ (byte) ((A == 1) ? 0 : 1) };
 	}
 }

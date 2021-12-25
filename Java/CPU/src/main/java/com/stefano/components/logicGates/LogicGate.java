@@ -2,9 +2,16 @@ package com.stefano.components.logicGates;
 
 import com.stefano.components.Component;
 
-public interface LogicGate extends Component
+public abstract class LogicGate extends Component
 {
-	public static final int OUTPUT = 0;
+	protected static final int OUTPUT = 0;
 
-	public static final int NUMBER_OF_OUTPUTS = 1;
+	protected static final int NUMBER_OF_OUTPUTS = 1;
+
+	public LogicGate()
+	{
+		super();
+
+		super.NUMBER_OF_OUTPUTS = NUMBER_OF_OUTPUTS;
+	}
 }

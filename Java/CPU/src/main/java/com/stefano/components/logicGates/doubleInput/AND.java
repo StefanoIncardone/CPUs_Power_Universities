@@ -3,11 +3,11 @@ package com.stefano.components.logicGates.doubleInput;
 public class AND extends TwoInputLogicGate
 {
 	@Override
-	public int[] out( int[] input )
+	protected byte[] out( byte[] inputs )
 	{
-		final int A = input[ INPUT_COL_A ];
-		final int B = input[ INPUT_COL_B ];
+		final byte A = inputs[ INPUT_COL_A ];
+		final byte B = inputs[ INPUT_COL_B ];
 
-		return new int[]{ (A == 1) ? (B == 1) ? 1 : 0 : 0 };
+		return new byte[]{ (byte) ((A == 1) ? (B == 1) ? 1 : 0 : 0) };
 	}
 }

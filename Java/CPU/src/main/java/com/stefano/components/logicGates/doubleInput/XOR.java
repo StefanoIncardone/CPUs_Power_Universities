@@ -4,16 +4,14 @@ public class XOR extends TwoInputLogicGate
 {
 	private final OR or = new OR();
 	private final NIMPLY nimply = new NIMPLY();
+	private final CNIMPLY cnimply = new CNIMPLY();
 
 	@Override
-	public int[] out( int[] input )
+	protected byte[] out( byte[] input )
 	{
-		final int A = input[ INPUT_COL_A ];
-		final int B = input[ INPUT_COL_B ];
+		final byte A = input[ INPUT_COL_A ];
+		final byte B = input[ INPUT_COL_B ];
 
-		int nimply_AB = nimply.out( new int[]{ A, B } )[ OUTPUT ];
-		int nimply_BA = nimply.out( new int[]{ B, A } )[ OUTPUT ];
-
-		return or.out( new int[]{ nimply_AB, nimply_BA } );
+		return new byte[]{ or.out( nimply.out( A, B ), cnimply.out( A, B ) ) };
 	}
 }

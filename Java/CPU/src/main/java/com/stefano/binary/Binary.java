@@ -2,5 +2,5 @@ package com.stefano.binary;
 
 public interface Binary
 {
-	public static final int[] VALUES = new int[]{ 0, 1 };
+	public static final byte[] VALUES = new byte[]{ 0, 1 };
 }
