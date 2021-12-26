@@ -1,10 +1,9 @@
 package com.stefano.components.logicGates.twoBitsInput;
 
 import com.stefano.binary.Binary;
-import com.stefano.components.interfaces.TwoBitInputComponent;
 import com.stefano.components.logicGates.LogicGate;
 
-public abstract class TwoInputLogicGate extends LogicGate implements TwoBitInputComponent
+public abstract class TwoInputLogicGate extends LogicGate
 {
 	protected static final int INPUT_COL_A = 0;
 	protected static final int INPUT_COL_B = 1;
@@ -13,7 +12,7 @@ public abstract class TwoInputLogicGate extends LogicGate implements TwoBitInput
 	@Override
 	protected void setComponentAttributes()
 	{
-		// super.NUMBER_OF_INPUTS = TwoBitInputComponent.NUMBER_OF_INPUTS;
+		super.NUMBER_OF_INPUTS = 2;
 
 		super.COLUMN_NAMES = new String[]
 		{
@@ -21,8 +20,6 @@ public abstract class TwoInputLogicGate extends LogicGate implements TwoBitInput
 			"B",
 			"A " + this.getClass().getSimpleName() + " B"
 		};
-
-		// System.out.println( "\n" + this.getClass().getSuperclass().getInterfaces()[ 0 ].getFields()[ 0 ] + "\n" );
 	}
 	
 	@Override

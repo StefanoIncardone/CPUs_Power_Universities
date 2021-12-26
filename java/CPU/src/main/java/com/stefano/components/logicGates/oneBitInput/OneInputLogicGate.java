@@ -1,10 +1,9 @@
 package com.stefano.components.logicGates.oneBitInput;
 
 import com.stefano.binary.Binary;
-import com.stefano.components.interfaces.OneBitInputComponent;
 import com.stefano.components.logicGates.LogicGate;
 
-public abstract class OneInputLogicGate extends LogicGate implements OneBitInputComponent
+public abstract class OneInputLogicGate extends LogicGate
 {
 	protected static final int INPUT_COL = 0;
 	protected static final int OUTPUT_COL = 1;
@@ -12,7 +11,7 @@ public abstract class OneInputLogicGate extends LogicGate implements OneBitInput
 	@Override
 	protected void setComponentAttributes()
 	{
-		// super.NUMBER_OF_INPUTS = OneBitInputComponent.NUMBER_OF_INPUTS;
+		super.NUMBER_OF_INPUTS = 1;
 
 		super.COLUMN_NAMES = new String[]
 		{

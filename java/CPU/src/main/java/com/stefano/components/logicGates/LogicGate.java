@@ -13,14 +13,5 @@ public abstract class LogicGate extends Component
 		super();
 
 		super.NUMBER_OF_OUTPUTS = NUMBER_OF_OUTPUTS;
-
-		try
-		{
-			super.NUMBER_OF_INPUTS = this.getClass().getField( "NUMBER_OF_INPUTS" ).getInt( null );
-		}
-		catch( IllegalArgumentException | IllegalAccessException | NoSuchFieldException | SecurityException e1 )
-		{
-			e1.printStackTrace();
-		}
 	}
 }
