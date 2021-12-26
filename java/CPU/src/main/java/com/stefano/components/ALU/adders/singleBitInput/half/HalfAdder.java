@@ -1,7 +1,7 @@
 package com.stefano.components.ALU.adders.singleBitInput.half;
 
-import com.stefano.components.logicGates.doubleInput.AND;
-import com.stefano.components.logicGates.doubleInput.XOR;
+import com.stefano.components.logicGates.twoBitsInput.AND;
+import com.stefano.components.logicGates.twoBitsInput.XOR;
 
 public class HalfAdder extends AbstractHalfAdder
 {

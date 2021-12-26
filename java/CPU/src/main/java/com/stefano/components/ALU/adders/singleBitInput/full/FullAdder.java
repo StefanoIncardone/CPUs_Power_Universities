@@ -1,7 +1,7 @@
 package com.stefano.components.ALU.adders.singleBitInput.full;
 
 import com.stefano.components.ALU.adders.singleBitInput.half.HalfAdder;
-import com.stefano.components.logicGates.doubleInput.OR;
+import com.stefano.components.logicGates.twoBitsInput.OR;
 
 public class FullAdder extends AbstractFullAdder
 {
