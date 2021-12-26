@@ -1,10 +1,10 @@
 package com.stefano.components.ALU.comparators.oneBit;
 
-import com.stefano.components.logicGates.doubleInput.CIMPLY;
-import com.stefano.components.logicGates.doubleInput.CNIMPLY;
-import com.stefano.components.logicGates.doubleInput.IMPLY;
-import com.stefano.components.logicGates.doubleInput.NIMPLY;
-import com.stefano.components.logicGates.doubleInput.XNOR;
+import com.stefano.components.logicGates.twoBitsInput.CIMPLY;
+import com.stefano.components.logicGates.twoBitsInput.CNIMPLY;
+import com.stefano.components.logicGates.twoBitsInput.IMPLY;
+import com.stefano.components.logicGates.twoBitsInput.NIMPLY;
+import com.stefano.components.logicGates.twoBitsInput.XNOR;
 
 public class OneBitComparator extends AbstractOneBitComparator
 {

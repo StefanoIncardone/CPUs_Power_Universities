@@ -5,8 +5,8 @@ import com.stefano.components.ALU.adders.multipleBitsInput.rippleCarry.twoBits.T
 import com.stefano.components.ALU.adders.singleBitInput.full.FullAdder;
 import com.stefano.components.ALU.adders.singleBitInput.half.HalfAdder;
 import com.stefano.components.ALU.comparators.oneBit.OneBitComparator;
-import com.stefano.components.logicGates.doubleInput.*;
-import com.stefano.components.logicGates.singleInput.*;
+import com.stefano.components.logicGates.oneBitInput.*;
+import com.stefano.components.logicGates.twoBitsInput.*;
 
 public class Monitor
 {
