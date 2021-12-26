@@ -1,9 +1,10 @@
 package com.stefano;
 
 import com.stefano.components.Component;
-import com.stefano.components.ALU.adders.multipleBitInputs.rippleCarry.bits_2.RCA_2bits;
-import com.stefano.components.ALU.adders.singleBitInputs.full.FullAdder;
-import com.stefano.components.ALU.adders.singleBitInputs.half.HalfAdder;
+import com.stefano.components.ALU.adders.multipleBitsInput.rippleCarry.twoBits.TwoBitsRCA;
+import com.stefano.components.ALU.adders.singleBitInput.full.FullAdder;
+import com.stefano.components.ALU.adders.singleBitInput.half.HalfAdder;
+import com.stefano.components.ALU.comparators.oneBit.OneBitComparator;
 import com.stefano.components.logicGates.doubleInput.*;
 import com.stefano.components.logicGates.singleInput.*;
 
@@ -29,7 +30,9 @@ public class Monitor
 		new HalfAdder(),
 		new FullAdder(),
 
-		new RCA_2bits()
+		new TwoBitsRCA(),
+
+		new OneBitComparator()
 	};
 
 	public static void main( String[] args )
