@@ -1,0 +1,18 @@
+package com.stefano.components.ALU.adders.singleBitInputs;
+
+import com.stefano.components.Component;
+
+public abstract class Adder extends Component
+{
+	public static final int CARRY = 0;
+	public static final int SUM = 1;
+
+	protected static final int NUMBER_OF_OUTPUTS = 2;
+
+	public Adder()
+	{
+		super();
+
+		super.NUMBER_OF_OUTPUTS = NUMBER_OF_OUTPUTS;
+	}
+}
