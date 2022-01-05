@@ -1,6 +1,5 @@
 package com.stefano.components.ALU.comparators.oneBit;
 
-import com.stefano.binary.Binary;
 import com.stefano.components.ALU.comparators.Comparator;
 
 public abstract class AbstractOneBitComparator extends Comparator
@@ -25,39 +24,22 @@ public abstract class AbstractOneBitComparator extends Comparator
 		"GREATER"
 	};
 
-	public AbstractOneBitComparator()
+	@Override
+	protected int getNumberOfInputs()
 	{
-		super.setNumberOfInputs( NUMBER_OF_INPUTS );
-		super.setNumberOfOutputs( NUMBER_OF_OUTPUTS );
-		super.setColumnNames( COLUMN_NAMES );
+		return NUMBER_OF_INPUTS;
 	}
 
 	@Override
-	protected void populateTruthTable( byte[][] data )
+	protected int getNumberOfOutputs()
 	{
-		int row = 0;
-		for( byte A : Binary.VALUES )
-		{
-			for( byte B : Binary.VALUES )
-			{
-				this.populateTableRow( data, row, new byte[]{ A, B } );
-				row++;
-			}
-		}
+		return NUMBER_OF_OUTPUTS;
 	}
 
 	@Override
-	protected void populateTableRow( byte[][] data, int row, byte[] input )
+	protected String[] getColumnNames()
 	{
-		byte[] output = this.out( input );
-
-		data[ row ][ INPUT_COL_A ] = input[ INPUT_COL_A ];
-		data[ row ][ INPUT_COL_B ] = input[ INPUT_COL_B ];
-		data[ row ][ OUTPUT_COL_LESS ] = output[ LESS ];
-		data[ row ][ OUTPUT_COL_LESS_OR_EQUAL ] = output[ LESS_OR_EQUAL ];
-		data[ row ][ OUTPUT_COL_EQUAL ] = output[ EQUAL ];
-		data[ row ][ OUTPUT_COL_GREATER_OR_EQUAL ] = output[ GREATER_OR_EQUAL ];
-		data[ row ][ OUTPUT_COL_GREATER ] = output[ GREATER ];
+		return COLUMN_NAMES;
 	}
 
 	public byte[] out( byte A, byte B )

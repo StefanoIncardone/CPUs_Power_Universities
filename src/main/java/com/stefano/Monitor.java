@@ -39,7 +39,7 @@ public class Monitor
 	{
 		for( Component component : COMPONENTS )
 		{
-			System.out.print( "\n" + component.getTruthTable() + "\n" );
+			System.out.println( "\n" + component.getTruthTable() + "\n" );
 		}
 	}
 }

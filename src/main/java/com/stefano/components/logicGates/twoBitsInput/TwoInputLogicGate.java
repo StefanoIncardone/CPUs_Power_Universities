@@ -1,6 +1,5 @@
 package com.stefano.components.logicGates.twoBitsInput;
 
-import com.stefano.binary.Binary;
 import com.stefano.components.logicGates.LogicGate;
 
 public abstract class TwoInputLogicGate extends LogicGate
@@ -10,40 +9,28 @@ public abstract class TwoInputLogicGate extends LogicGate
 	protected static final int OUTPUT_COL = 2;
 
 	private static final int NUMBER_OF_INPUTS = 2;
-	private final String[] COLUMN_NAMES = new String[]
-	{
-		"A", 
-		"B",
-		"A " + this.getClass().getSimpleName() + " B"
-	};
 
-	public TwoInputLogicGate()
-	{
-		super.setNumberOfInputs( NUMBER_OF_INPUTS );
-		super.setNumberOfOutputs( NUMBER_OF_OUTPUTS );
-		super.setColumnNames( COLUMN_NAMES );
-	}
-	
 	@Override
-	protected void populateTruthTable( byte[][] data )
+	protected int getNumberOfInputs()
 	{
-		int row = 0;
-		for( byte A : Binary.VALUES )
+		return NUMBER_OF_INPUTS;
+	}
+
+	@Override
+	protected int getNumberOfOutputs()
+	{
+		return NUMBER_OF_OUTPUTS;
+	}
+
+	@Override
+	protected String[] getColumnNames()
+	{
+		if( COLUMN_NAMES == null )
 		{
-			for( byte B : Binary.VALUES )
-			{
-				this.populateTableRow( data, row, new byte[]{ A, B } );
-				row++;
-			}
+			COLUMN_NAMES = new String[]{ "A", "B", "A " + this.getClass().getSimpleName() + " B" };
 		}
-	}
 
-	@Override
-	protected void populateTableRow( byte[][] data, int row, byte[] input )
-	{
-		data[ row ][ INPUT_COL_A ] = input[ INPUT_COL_A ];
-		data[ row ][ INPUT_COL_B ] = input[ INPUT_COL_B ];
-		data[ row ][ OUTPUT_COL ] = this.out( input )[ OUTPUT ];
+		return COLUMN_NAMES;
 	}
 
 	public byte out( byte A, byte B )

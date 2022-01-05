@@ -1,4 +1,4 @@
-package com.stefano.binary;
+package com.stefano.components;
 
 public class TruthTable
 {
@@ -22,36 +22,40 @@ public class TruthTable
 
 	private void constructTable()
 	{
-		createColumnNamesRow();
-
+		createRow( COLUMN_NAMES );
 		String rowSeparator = createRowSeparator();
+
 		TABLE.insert( 0, rowSeparator );
 		TABLE.append( rowSeparator );
 		
 		for( byte[] row : DATA )
 		{
-			createRow( row );
+			createRow( toObject( row ) );
 		}
 		
 		TABLE.append( rowSeparator );
+		TABLE.deleteCharAt( TABLE.length() - 1 );
 	}
 	
-	private void createColumnNamesRow()
-	{
-		for( String name : COLUMN_NAMES )
-		{
-			TABLE.append( String.format( "| %-" + name.length() + "s ", name ) );
-		}
-		TABLE.append( "|\n" );
-	}
-	
-	private void createRow( byte[] values )
+	private void createRow( Object[] values )
 	{
 		for( int index = 0; index < values.length; index++ )
 		{
-			TABLE.append( String.format( "| %-" + COLUMN_NAMES[ index ].length() + "d ", values[ index ] ) );
+			TABLE.append( String.format( "| %-" + COLUMN_NAMES[ index ].length() + "s ", values[ index ] ) );
 		}
 		TABLE.append( "|\n" );
+	}
+	
+	private Byte[] toObject( byte[] values )
+	{
+		Byte[] bytes = new Byte[ values.length ];
+
+		for( int index = 0; index < values.length; index++ )
+		{
+			bytes[ index ] = Byte.valueOf( values[ index ] );
+		}
+
+		return bytes;
 	}
 	
 	private String createRowSeparator()

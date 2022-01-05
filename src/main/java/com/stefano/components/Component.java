@@ -1,55 +1,79 @@
 package com.stefano.components;
 
 import com.stefano.binary.Binary;
-import com.stefano.binary.TruthTable;
 
-public abstract class Component implements Binary
+public abstract class Component
 {
-	private int NUMBER_OF_INPUTS;
+	public final int NUMBER_OF_INPUTS;
 
-	private int NUMBER_OF_OUTPUTS;
+	public final int NUMBER_OF_OUTPUTS;
 
-	private String[] COLUMN_NAMES;
+	private final String[] COLUMN_NAMES;
 
-	protected abstract void populateTruthTable( byte[][] data );
+	private String TRUTH_TABLE = null;
 
-	protected abstract void populateTableRow( byte[][] data, int row, byte[] input );
+	protected abstract int getNumberOfInputs();
+
+	protected abstract int getNumberOfOutputs();
+
+	protected abstract String[] getColumnNames();
 
 	protected abstract byte[] out( byte[] inputs );
-	
+
+	public Component()
+	{
+		NUMBER_OF_INPUTS = getNumberOfInputs();
+		NUMBER_OF_OUTPUTS = getNumberOfOutputs();
+		COLUMN_NAMES = getColumnNames();
+	}
+
 	public String getTruthTable()
 	{
-		int NUMBER_OF_ROWS = (int) Math.pow( 2, NUMBER_OF_INPUTS );
-		int NUMBER_OF_COLUMNS = NUMBER_OF_INPUTS + NUMBER_OF_OUTPUTS;
+		if( TRUTH_TABLE == null )
+		{
+			constructTable();
+		}
 
-		byte[][] table = new byte[ NUMBER_OF_ROWS ][ NUMBER_OF_COLUMNS ];
-		populateTruthTable( table );
-
-		return new TruthTable( COLUMN_NAMES, table ).toString();
+		return TRUTH_TABLE;
 	}
 
-	protected void setNumberOfInputs( int amount )
+	private void constructTable()
 	{
-		NUMBER_OF_INPUTS = amount;
+		byte[][] table = getTable();
+		getTableValues( table );
+
+		TRUTH_TABLE = new TruthTable( COLUMN_NAMES, table ).toString();
 	}
 
-	protected void setNumberOfOutputs( int amount )
+	private byte[][] getTable()
 	{
-		NUMBER_OF_OUTPUTS = amount;
+		int numberOfRows = (int) Math.pow( 2, NUMBER_OF_INPUTS );
+		int numberOfColumns = NUMBER_OF_INPUTS + NUMBER_OF_OUTPUTS;
+
+		return new byte[ numberOfRows ][ numberOfColumns ];
 	}
 
-	protected void setColumnNames( String[] names )
+	private void getTableValues( byte[][] table )
 	{
-		COLUMN_NAMES = names;
+		for( int row = 0; row < table.length; row++ )
+		{
+			byte[] bits = Binary.toBitArray( row, NUMBER_OF_INPUTS );
+			populateRow( table, bits, row );
+		}
 	}
 
-	public int getNumberOfInputs()
+	private void populateRow( byte[][] table, byte[] input, int row )
 	{
-		return NUMBER_OF_INPUTS;
-	}
+		for( int counter = 0; counter < input.length; counter++ )
+		{
+			table[ row ][ counter ] = input[ counter ];
+		}
+		
+		byte[] output = this.out( input );
 
-	public int getNumberOfOutputs()
-	{
-		return NUMBER_OF_OUTPUTS;
+		for( int counter = input.length; counter < table[ 0 ].length; counter++ )
+		{
+			table[ row ][ counter ] = output[ counter - input.length ];
+		}
 	}
 }
