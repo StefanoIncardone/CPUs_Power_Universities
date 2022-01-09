@@ -1,0 +1,6 @@
+com/stefano/components/ALU/adders/singleBitInput/HalfAdderTest.class
+com/stefano/components/logicGates/singleInput/SingleInputGatesTest.class
+com/stefano/components/logicGates/doubleInput/DoubleInputGatesTest.class
+com/stefano/components/ALU/comparators/OneBitComparatorTests.class
+com/stefano/components/ALU/adders/singleBitInput/FullAdderTest.class
+com/stefano/components/ALU/adders/multipleBitsInput/rippleCarryAdders/twoBits/RCA_2bitsTest.class

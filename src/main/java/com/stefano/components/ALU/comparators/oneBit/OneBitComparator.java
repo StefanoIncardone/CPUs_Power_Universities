@@ -1,24 +1,24 @@
 package com.stefano.components.ALU.comparators.oneBit;
 
-import com.stefano.components.logicGates.twoBitsInput.CIMPLY;
-import com.stefano.components.logicGates.twoBitsInput.CNIMPLY;
-import com.stefano.components.logicGates.twoBitsInput.IMPLY;
-import com.stefano.components.logicGates.twoBitsInput.NIMPLY;
-import com.stefano.components.logicGates.twoBitsInput.XNOR;
+import com.stefano.components.logicGates.gates.twoBitsInput.CNIMPLY;
+import com.stefano.components.logicGates.gates.twoBitsInput.IMPLY;
+import com.stefano.components.logicGates.gates.twoBitsInput.XNOR;
+import com.stefano.components.logicGates.gates.twoBitsInput.CIMPLY;
+import com.stefano.components.logicGates.gates.twoBitsInput.NIMPLY;
 
-public class OneBitComparator extends AbstractOneBitComparator
+public final class OneBitComparator extends AbstractOneBitComparator
 {
-	final CNIMPLY cnimply = new CNIMPLY();
-	final IMPLY imply = new IMPLY();
-	final XNOR xnor = new XNOR();
-	final CIMPLY cimply = new CIMPLY();
-	final NIMPLY nimply = new NIMPLY();
+	private final CNIMPLY cnimply = new CNIMPLY();
+	private final IMPLY imply = new IMPLY();
+	private final XNOR xnor = new XNOR();
+	private final CIMPLY cimply = new CIMPLY();
+	private final NIMPLY nimply = new NIMPLY();
 
 	@Override
 	protected byte[] out( byte[] input )
 	{
-		final byte A = input[ INPUT_COL_A ];
-		final byte B = input[ INPUT_COL_B ];
+		byte A = input[ INPUT_COL_A ];
+		byte B = input[ INPUT_COL_B ];
 
 		byte lessOutput = cnimply.out( A, B );
 		byte lessOrEqualOutput = imply.out( A, B );

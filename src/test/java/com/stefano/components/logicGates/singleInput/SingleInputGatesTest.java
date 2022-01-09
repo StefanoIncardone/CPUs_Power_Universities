@@ -1,11 +1,11 @@
 package com.stefano.components.logicGates.singleInput;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-import com.stefano.components.logicGates.oneBitInput.BUFFER;
-import com.stefano.components.logicGates.oneBitInput.CONTRADICTION;
-import com.stefano.components.logicGates.oneBitInput.NOT;
-import com.stefano.components.logicGates.oneBitInput.TAUTOLOGY;
+import com.stefano.components.logicGates.gates.oneBitInput.BUFFER;
+import com.stefano.components.logicGates.gates.oneBitInput.CONTRADICTION;
+import com.stefano.components.logicGates.gates.oneBitInput.NOT;
+import com.stefano.components.logicGates.gates.oneBitInput.TAUTOLOGY;
 
 import org.junit.Test;
 

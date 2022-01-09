@@ -2,7 +2,7 @@ package com.stefano.components.ALU.comparators.oneBit;
 
 import com.stefano.components.ALU.comparators.Comparator;
 
-public abstract class AbstractOneBitComparator extends Comparator
+public abstract sealed class AbstractOneBitComparator extends Comparator permits OneBitComparator
 {
 	protected static final int INPUT_COL_A = 0;
 	protected static final int INPUT_COL_B = 1;
@@ -24,30 +24,17 @@ public abstract class AbstractOneBitComparator extends Comparator
 		"GREATER"
 	};
 
-	@Override
-	protected int getNumberOfInputs()
+	public AbstractOneBitComparator()
 	{
-		return NUMBER_OF_INPUTS;
+		super( NUMBER_OF_INPUTS, COLUMN_NAMES );
 	}
 
-	@Override
-	protected int getNumberOfOutputs()
-	{
-		return NUMBER_OF_OUTPUTS;
-	}
-
-	@Override
-	protected String[] getColumnNames()
-	{
-		return COLUMN_NAMES;
-	}
-
-	public byte[] out( byte A, byte B )
+	public final byte[] out( byte A, byte B )
 	{
 		return this.out( new byte[]{ A, B } );
 	}
 
-	public byte[] out( int A, int B )
+	public final byte[] out( int A, int B )
 	{
 		return this.out( (byte) A, (byte) B );
 	}

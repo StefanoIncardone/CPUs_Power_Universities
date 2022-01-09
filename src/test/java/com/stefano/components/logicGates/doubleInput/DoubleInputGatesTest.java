@@ -1,15 +1,15 @@
 package com.stefano.components.logicGates.doubleInput;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-import com.stefano.components.logicGates.twoBitsInput.AND;
-import com.stefano.components.logicGates.twoBitsInput.IMPLY;
-import com.stefano.components.logicGates.twoBitsInput.NAND;
-import com.stefano.components.logicGates.twoBitsInput.NIMPLY;
-import com.stefano.components.logicGates.twoBitsInput.NOR;
-import com.stefano.components.logicGates.twoBitsInput.OR;
-import com.stefano.components.logicGates.twoBitsInput.XNOR;
-import com.stefano.components.logicGates.twoBitsInput.XOR;
+import com.stefano.components.logicGates.gates.twoBitsInput.AND;
+import com.stefano.components.logicGates.gates.twoBitsInput.IMPLY;
+import com.stefano.components.logicGates.gates.twoBitsInput.NAND;
+import com.stefano.components.logicGates.gates.twoBitsInput.NIMPLY;
+import com.stefano.components.logicGates.gates.twoBitsInput.NOR;
+import com.stefano.components.logicGates.gates.twoBitsInput.OR;
+import com.stefano.components.logicGates.gates.twoBitsInput.XNOR;
+import com.stefano.components.logicGates.gates.twoBitsInput.XOR;
 
 import org.junit.Test;
 

@@ -2,7 +2,7 @@ package com.stefano.components.ALU.adders.multipleBitsInput.rippleCarryAdders.tw
 
 import static org.junit.Assert.*;
 
-import com.stefano.components.ALU.adders.multipleBitsInput.rippleCarry.twoBits.TwoBitsRCA;
+import com.stefano.components.ALU.adders.multipleBitInputs.rippleCarry.RCA.twoBits.TwoBitsRCA;
 
 import org.junit.Test;
 
