@@ -1,6 +1,6 @@
-/home/stefano/Documenti/projects/java/CPU/src/test/java/com/stefano/components/logicGates/singleInput/SingleInputGatesTest.java
-/home/stefano/Documenti/projects/java/CPU/src/test/java/com/stefano/components/ALU/adders/singleBitInput/HalfAdderTest.java
-/home/stefano/Documenti/projects/java/CPU/src/test/java/com/stefano/components/ALU/comparators/OneBitComparatorTests.java
-/home/stefano/Documenti/projects/java/CPU/src/test/java/com/stefano/components/logicGates/doubleInput/DoubleInputGatesTest.java
-/home/stefano/Documenti/projects/java/CPU/src/test/java/com/stefano/components/ALU/adders/singleBitInput/FullAdderTest.java
-/home/stefano/Documenti/projects/java/CPU/src/test/java/com/stefano/components/ALU/adders/multipleBitsInput/rippleCarryAdders/twoBits/RCA_2bitsTest.java
+/home/stefano/Documenti/projects/java/CPU_Per_Universita/src/test/java/com/CPU/components/logicGates/singleInput/SingleInputGatesTest.java
+/home/stefano/Documenti/projects/java/CPU_Per_Universita/src/test/java/com/CPU/components/logicGates/doubleInput/DoubleInputGatesTest.java
+/home/stefano/Documenti/projects/java/CPU_Per_Universita/src/test/java/com/CPU/components/ALU/adders/multipleBitsInput/rippleCarryAdders/twoBits/RCA_2bitsTest.java
+/home/stefano/Documenti/projects/java/CPU_Per_Universita/src/test/java/com/CPU/components/ALU/adders/singleBitInput/FullAdderTest.java
+/home/stefano/Documenti/projects/java/CPU_Per_Universita/src/test/java/com/CPU/components/ALU/comparators/OneBitComparatorTests.java
+/home/stefano/Documenti/projects/java/CPU_Per_Universita/src/test/java/com/CPU/components/ALU/adders/singleBitInput/HalfAdderTest.java
