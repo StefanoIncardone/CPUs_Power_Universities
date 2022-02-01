@@ -4,13 +4,13 @@ import com.CPU.components.ALU.comparators.Comparator;
 
 public abstract sealed class AbstractOneBitComparator extends Comparator permits OneBitComparator
 {
-	protected static final int INPUT_COL_A = 0;
-	protected static final int INPUT_COL_B = 1;
-	protected static final int OUTPUT_COL_LESS = 2;
-	protected static final int OUTPUT_COL_LESS_OR_EQUAL = 3;
-	protected static final int OUTPUT_COL_EQUAL = 4;
-	protected static final int OUTPUT_COL_GREATER_OR_EQUAL = 5;
-	protected static final int OUTPUT_COL_GREATER = 6;
+	public static final int INPUT_COL_A = 0;
+	public static final int INPUT_COL_B = 1;
+	public static final int OUTPUT_COL_LESS = 2;
+	public static final int OUTPUT_COL_LESS_OR_EQUAL = 3;
+	public static final int OUTPUT_COL_EQUAL = 4;
+	public static final int OUTPUT_COL_GREATER_OR_EQUAL = 5;
+	public static final int OUTPUT_COL_GREATER = 6;
 
 	private static final int NUMBER_OF_INPUTS = 2;
 	private static final String[] COLUMN_NAMES = new String[]

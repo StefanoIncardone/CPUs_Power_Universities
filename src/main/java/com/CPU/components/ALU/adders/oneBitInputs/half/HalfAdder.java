@@ -1,7 +1,7 @@
 package com.CPU.components.ALU.adders.oneBitInputs.half;
 
-import com.CPU.components.logicGates.gates.twoBitsInput.AND;
-import com.CPU.components.logicGates.gates.twoBitsInput.XOR;
+import com.CPU.components.logicGates.twoBitsInput.AND;
+import com.CPU.components.logicGates.twoBitsInput.XOR;
 
 public final class HalfAdder extends AbstractHalfAdder
 {
@@ -9,10 +9,12 @@ public final class HalfAdder extends AbstractHalfAdder
 	private final AND and = new AND();
 
 	@Override
-	protected byte[] out( byte[] input )
+	public byte[] out( byte... inputs )
 	{
-		byte A = input[ INPUT_COL_A ];
-		byte B = input[ INPUT_COL_B ];
+		validateInput( inputs );
+
+		byte A = inputs[ INPUT_COL_A ];
+		byte B = inputs[ INPUT_COL_B ];
 
 		return new byte[]{ and.out( A, B ), xor.out( A, B ) };
 	}

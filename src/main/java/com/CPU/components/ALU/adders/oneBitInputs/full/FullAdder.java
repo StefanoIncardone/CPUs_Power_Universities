@@ -1,24 +1,26 @@
 package com.CPU.components.ALU.adders.oneBitInputs.full;
 
 import com.CPU.components.ALU.adders.oneBitInputs.half.HalfAdder;
-import com.CPU.components.logicGates.gates.twoBitsInput.OR;
+import com.CPU.components.logicGates.twoBitsInput.OR;
 
 public final class FullAdder extends AbstractFullAdder
 {
-	private final HalfAdder firstHalfAdder = new HalfAdder();
-	private final HalfAdder secondHalfAdder = new HalfAdder();
+	private final HalfAdder halfAdder_0 = new HalfAdder();
+	private final HalfAdder halfAdder_1 = new HalfAdder();
 	private final OR or = new OR();
 
 	@Override
-	protected byte[] out( byte[] input )
+	protected byte[] out( byte... inputs )
 	{
-		byte C = input[ IMPUT_COL_CARRY ];
-		byte A = input[ INPUT_COL_A ];
-		byte B = input[ INPUT_COL_B ];
+		validateInput( inputs );
 
-		byte[] firstHalfAdderOutput = firstHalfAdder.out( A, B );
-		byte[] secondHalfAdderOutput = secondHalfAdder.out( firstHalfAdderOutput[ SUM ], C );
-		byte carryOutput = or.out( firstHalfAdderOutput[ CARRY ], secondHalfAdderOutput[ CARRY ] );
+		byte C = inputs[ IMPUT_COL_CARRY ];
+		byte A = inputs[ INPUT_COL_A ];
+		byte B = inputs[ INPUT_COL_B ];
+
+		byte[] firstHalfAdderOutput = halfAdder_0.out( A, B );
+		byte[] secondHalfAdderOutput = halfAdder_1.out( firstHalfAdderOutput[ SUM ], C );
+		byte carryOutput = or.out( firstHalfAdderOutput[ CARRY_OUT ], secondHalfAdderOutput[ CARRY_OUT ] );
 	
 		return new byte[]{ carryOutput, secondHalfAdderOutput[ SUM ] };
 	}

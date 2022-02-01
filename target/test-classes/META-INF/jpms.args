@@ -1,4 +1,0 @@
---patch-module
-ComputerPerUniversita=_
---add-reads
-ComputerPerUniversita=ALL-UNNAMED

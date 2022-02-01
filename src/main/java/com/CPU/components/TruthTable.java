@@ -1,7 +1,7 @@
 package com.CPU.components;
 
-import com.libraries.ArrayUtils;
-import com.libraries.Binary;
+import com.libraries.utilityClasses.ArrayUtils;
+import com.libraries.utilityClasses.Binary;
 
 public final class TruthTable
 {

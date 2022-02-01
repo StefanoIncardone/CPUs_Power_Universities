@@ -1,8 +1,8 @@
 package com.CPU.components.logicGates;
 
 import com.CPU.components.Component;
-import com.CPU.components.logicGates.gates.oneBitInput.OneInputLogicGate;
-import com.CPU.components.logicGates.gates.twoBitsInput.TwoInputLogicGate;
+import com.CPU.components.logicGates.oneBitInput.OneInputLogicGate;
+import com.CPU.components.logicGates.twoBitsInput.TwoInputLogicGate;
 
 public abstract sealed class LogicGate extends Component permits OneInputLogicGate, TwoInputLogicGate
 {

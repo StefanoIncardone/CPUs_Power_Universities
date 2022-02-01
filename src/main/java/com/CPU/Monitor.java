@@ -1,29 +1,20 @@
 package com.CPU;
 
 import com.CPU.components.Component;
-import com.CPU.components.ALU.adders.multipleBitInputs.twoBits.TwoBitsRCA;
+import com.CPU.components.ALU.adders.multipleBitInputs.fourBit.FourBitsRCA;
+import com.CPU.components.ALU.adders.multipleBitInputs.twoBit.TwoBitsRCA;
 import com.CPU.components.ALU.adders.oneBitInputs.full.FullAdder;
 import com.CPU.components.ALU.adders.oneBitInputs.half.HalfAdder;
 import com.CPU.components.ALU.comparators.oneBit.OneBitComparator;
-import com.CPU.components.logicGates.gates.oneBitInput.BUFFER;
-import com.CPU.components.logicGates.gates.oneBitInput.CONTRADICTION;
-import com.CPU.components.logicGates.gates.oneBitInput.NOT;
-import com.CPU.components.logicGates.gates.oneBitInput.TAUTOLOGY;
-import com.CPU.components.logicGates.gates.twoBitsInput.AND;
-import com.CPU.components.logicGates.gates.twoBitsInput.CIMPLY;
-import com.CPU.components.logicGates.gates.twoBitsInput.CNIMPLY;
-import com.CPU.components.logicGates.gates.twoBitsInput.IMPLY;
-import com.CPU.components.logicGates.gates.twoBitsInput.NAND;
-import com.CPU.components.logicGates.gates.twoBitsInput.NIMPLY;
-import com.CPU.components.logicGates.gates.twoBitsInput.NOR;
-import com.CPU.components.logicGates.gates.twoBitsInput.OR;
-import com.CPU.components.logicGates.gates.twoBitsInput.XNOR;
-import com.CPU.components.logicGates.gates.twoBitsInput.XOR;
+import com.CPU.components.ALU.multipliers.twoBit.TwoBitMultiplier;
+import com.CPU.components.logicGates.oneBitInput.*;
+import com.CPU.components.logicGates.twoBitsInput.*;
 
 public class Monitor
 {
 	private static final Component[] COMPONENTS = new Component[]
 	{
+		// logic gates
 		new CONTRADICTION(),
 		new TAUTOLOGY(),
 		new BUFFER(),
@@ -39,19 +30,32 @@ public class Monitor
 		new NIMPLY(),
 		new CNIMPLY(),
 		
-		new HalfAdder(),
-		new FullAdder(),
+		// adders
+			// one bit input
+			new HalfAdder(),
+			new FullAdder(),
 
-		new TwoBitsRCA(),
+			// multiple bit input
+			new TwoBitsRCA(),
+			new FourBitsRCA(),
 
-		new OneBitComparator()
+		// comparators
+		new OneBitComparator(),
+
+		// multipliers
+		new TwoBitMultiplier()
 	};
 
 	public static void main( String[] args )
 	{
-		// for( Component component : COMPONENTS )
-		// {
-		// 	System.out.println( "\n" + component.getTruthTable() + "\n" );
-		// }
+		for( Component component : COMPONENTS )
+		{
+			System.out.println
+			(
+																			"\n" +
+				"Component: " + component.getClass().getSimpleName()	+	"\n" +
+				component.getTruthTable()								+	"\n"
+			);
+		}
 	}
 }

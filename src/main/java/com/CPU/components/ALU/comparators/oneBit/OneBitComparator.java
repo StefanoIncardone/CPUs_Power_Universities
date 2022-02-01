@@ -1,10 +1,10 @@
 package com.CPU.components.ALU.comparators.oneBit;
 
-import com.CPU.components.logicGates.gates.twoBitsInput.CIMPLY;
-import com.CPU.components.logicGates.gates.twoBitsInput.CNIMPLY;
-import com.CPU.components.logicGates.gates.twoBitsInput.IMPLY;
-import com.CPU.components.logicGates.gates.twoBitsInput.NIMPLY;
-import com.CPU.components.logicGates.gates.twoBitsInput.XNOR;
+import com.CPU.components.logicGates.twoBitsInput.CIMPLY;
+import com.CPU.components.logicGates.twoBitsInput.CNIMPLY;
+import com.CPU.components.logicGates.twoBitsInput.IMPLY;
+import com.CPU.components.logicGates.twoBitsInput.NIMPLY;
+import com.CPU.components.logicGates.twoBitsInput.XNOR;
 
 public final class OneBitComparator extends AbstractOneBitComparator
 {
@@ -15,10 +15,12 @@ public final class OneBitComparator extends AbstractOneBitComparator
 	private final NIMPLY nimply = new NIMPLY();
 
 	@Override
-	protected byte[] out( byte[] input )
+	protected byte[] out( byte... inputs )
 	{
-		byte A = input[ INPUT_COL_A ];
-		byte B = input[ INPUT_COL_B ];
+		validateInput( inputs );
+
+		byte A = inputs[ INPUT_COL_A ];
+		byte B = inputs[ INPUT_COL_B ];
 
 		byte lessOutput = cnimply.out( A, B );
 		byte lessOrEqualOutput = imply.out( A, B );
