@@ -3,7 +3,7 @@ package com.CPU.components;
 import static org.junit.Assert.*;
 
 import com.CPU.components.ALU.comparators.Comparator;
-import com.CPU.components.ALU.comparators.oneBit.OneBitComparator;
+import com.CPU.components.ALU.comparators.OneBitComparator;
 
 import org.junit.Test;
 

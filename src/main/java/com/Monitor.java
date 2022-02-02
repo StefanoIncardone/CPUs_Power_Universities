@@ -1,9 +1,6 @@
-package com.CPU.components;
+package com;
 
-import static org.junit.Assert.assertEquals;
-
-import java.util.Random;
-
+import com.CPU.components.Component;
 import com.CPU.components.ALU.adders.multipleBitInputs.FourBitsRCA;
 import com.CPU.components.ALU.adders.multipleBitInputs.TwoBitsRCA;
 import com.CPU.components.ALU.adders.oneBitInputs.FullAdder;
@@ -25,9 +22,7 @@ import com.CPU.components.logicGates.twoBitsInput.OR;
 import com.CPU.components.logicGates.twoBitsInput.XNOR;
 import com.CPU.components.logicGates.twoBitsInput.XOR;
 
-import org.junit.Test;
-
-public class inputValidationTests
+public class Monitor
 {
 	private static final Component[] COMPONENTS = new Component[]
 	{
@@ -63,86 +58,17 @@ public class inputValidationTests
 		new TwoBitMultiplier()
 	};
 
-	@Test
-	public void componentShouldRaiseAnErrorWhenPassedNonBinaryValues()
+	public static void main( String[] args )
 	{
-		boolean isInputCorrect = true;
-
 		for( Component component : COMPONENTS )
 		{
-			try
-			{
-				testOutputInputBinaryValues( component );
-			}
-			catch( IllegalArgumentException exception )
-			{
-				isInputCorrect = false;
-			}
-
-			assertEquals( isInputCorrect, false );
-
-			isInputCorrect = true;
+			System.out.println( "\n" + component.getClass().getCanonicalName() + "\n" );
+			System.out.println
+			(
+																			"\n" +
+				"Component: " + component.getClass().getSimpleName()	+	"\n" +
+				component.getTruthTable()								+	"\n"
+			);
 		}
-	}
-
-	@Test
-	public void componentShouldRaiseAnErrorWhenPassedWrongAmountOfInputs()
-	{
-		boolean isInputCorrect = true;
-
-		for( Component component : COMPONENTS )
-		{
-			try
-			{
-				testOutputInputLength( component );
-			}
-			catch( IllegalArgumentException exception )
-			{
-				isInputCorrect = false;
-			}
-
-			assertEquals( isInputCorrect, false );
-
-			isInputCorrect = true;
-		}
-	}
-
-	private void testOutputInputLength( Component component )
-	{
-		byte[] input = new byte[ randomIntExclude( component.getNumberOfInputs() ) ];
-
-		for( int index = 0; index < input.length; index++ )
-		{
-			input[ index ] = 1;
-		}
-		
-		component.out( input );
-	}
-	
-	private void testOutputInputBinaryValues( Component component )
-	{
-		byte[] input = new byte[ component.getNumberOfInputs() ];
-		Random randomGenerator = new Random();
-		
-		for( int index = 0; index < input.length; index++ )
-		{
-			input[ index ] = (byte) randomGenerator.nextInt( 2, Byte.MAX_VALUE + 1 );
-		}
-
-		component.out( input );
-	}
-
-	private int randomIntExclude( int excluded )
-	{
-		Random randomGenerator = new Random();
-		
-		int number;
-		do
-		{
-			number = randomGenerator.nextInt( Byte.MAX_VALUE );
-		}
-		while( number == excluded );
-		
-		return number;
 	}
 }

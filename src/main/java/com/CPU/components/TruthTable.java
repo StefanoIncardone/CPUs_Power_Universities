@@ -43,7 +43,7 @@ public final class TruthTable
 	{
 		for( int row = 0; row < table.length; row++ )
 		{
-			byte[] bits = Binary.toBitArray( row, numberOfInputs );
+			byte[] bits = Binary.toBitsArray( row, numberOfInputs );
 			populateRow( component, table, bits, row );
 		}
 	}
@@ -69,7 +69,7 @@ public final class TruthTable
 		
 		for( byte[] row : data )
 		{
-			createRow( ArrayUtils.toObject( row ) );
+			createRow( ArrayUtils.toWrapper( row ) );
 		}
 		
 		truthTable.append( rowSeparator );

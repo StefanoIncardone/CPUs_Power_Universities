@@ -1,11 +1,11 @@
 package com.CPU.components;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-import com.CPU.components.ALU.adders.multipleBitInputs.fourBit.FourBitsRCA;
-import com.CPU.components.ALU.adders.multipleBitInputs.twoBit.TwoBitsRCA;
-import com.CPU.components.ALU.adders.oneBitInputs.full.FullAdder;
-import com.CPU.components.ALU.adders.oneBitInputs.half.HalfAdder;
+import com.CPU.components.ALU.adders.multipleBitInputs.FourBitsRCA;
+import com.CPU.components.ALU.adders.multipleBitInputs.TwoBitsRCA;
+import com.CPU.components.ALU.adders.oneBitInputs.FullAdder;
+import com.CPU.components.ALU.adders.oneBitInputs.HalfAdder;
 import com.libraries.utilityClasses.Binary;
 
 import org.junit.Test;
@@ -22,7 +22,7 @@ public class AddersTests
 	{
 		for( int result = 0; result < Math.pow( 2, halfAdder.getNumberOfInputs() ); result++ )
 		{
-			byte[] bits = Binary.toBitArray( result, halfAdder.getNumberOfInputs() );
+			byte[] bits = Binary.toBitsArray( result, halfAdder.getNumberOfInputs() );
 			byte A = bits[ 0 ];
 			byte B = bits[ 1 ];
 
@@ -37,7 +37,7 @@ public class AddersTests
 	{
 		for( int result = 0; result < Math.pow( 2, fullAdder.getNumberOfInputs() ); result++ )
 		{
-			byte[] bits = Binary.toBitArray( result, fullAdder.getNumberOfInputs() );
+			byte[] bits = Binary.toBitsArray( result, fullAdder.getNumberOfInputs() );
 			byte C = bits[ 0 ];
 			byte A = bits[ 1 ];
 			byte B = bits[ 2 ];
@@ -53,7 +53,7 @@ public class AddersTests
 	{
 		for( int result = 0; result < Math.pow( 2, twoBitsRCA.getNumberOfInputs() ); result++ )
 		{
-			byte[] bits = Binary.toBitArray( result, twoBitsRCA.getNumberOfInputs() );
+			byte[] bits = Binary.toBitsArray( result, twoBitsRCA.getNumberOfInputs() );
 			byte C = bits[ 0 ];
 			byte A1 = bits[ 1 ];
 			byte A0 = bits[ 2 ];
@@ -73,7 +73,7 @@ public class AddersTests
 	{
 		for( int result = 0; result < Math.pow( 2, fourBitsRCA.getNumberOfInputs() ); result++ )
 		{
-			byte[] bits = Binary.toBitArray( result, fourBitsRCA.getNumberOfInputs() );
+			byte[] bits = Binary.toBitsArray( result, fourBitsRCA.getNumberOfInputs() );
 			byte C = bits[ 0 ];
 			byte A3 = bits[ 1 ];
 			byte A2 = bits[ 2 ];

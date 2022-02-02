@@ -1,9 +1,8 @@
 package com.CPU.components.ALU.comparators;
 
 import com.CPU.components.Component;
-import com.CPU.components.ALU.comparators.oneBit.AbstractOneBitComparator;
 
-public abstract sealed class Comparator extends Component permits AbstractOneBitComparator
+public abstract sealed class Comparator extends Component permits OneBitComparator
 {
 	public static final int LESS = 0;
 	public static final int LESS_OR_EQUAL = 1;

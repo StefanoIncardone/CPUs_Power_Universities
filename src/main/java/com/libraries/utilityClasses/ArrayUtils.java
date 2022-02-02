@@ -8,21 +8,9 @@ public final class ArrayUtils extends UtilityClass
 		super( ArrayUtils.class );
 	}
 
-	public static Byte[] toObject( byte[] values )
+	public static Byte[] toWrapper( byte[] values )
 	{
 		Byte[] bytes = new Byte[ values.length ];
-
-		for( int index = 0; index < values.length; index++ )
-		{
-			bytes[ index ] = values[ index ];
-		}
-
-		return bytes;
-	}
-
-	public static Integer[] toObject( int[] values )
-	{
-		Integer[] bytes = new Integer[ values.length ];
 
 		for( int index = 0; index < values.length; index++ )
 		{
@@ -42,4 +30,22 @@ public final class ArrayUtils extends UtilityClass
 
 		return value.toString();
 	}
+
+	// public static byte[] toByteArray( Object object ) throws IOException
+	// {
+	// 	try
+	// 	(
+	// 		ByteArrayOutputStream bos = new ByteArrayOutputStream();
+	// 		ObjectOutputStream out = new ObjectOutputStream( bos );
+	// 	)
+	// 	{
+	// 		out.writeObject( object );
+	// 		return bos.toByteArray();
+	// 	} 
+	// }
+
+	// public static int getObjectSize( Object object ) throws IOException
+	// {
+	// 	return toByteArray( object ).length;
+	// }
 }

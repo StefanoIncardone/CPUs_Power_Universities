@@ -4,6 +4,8 @@ import com.CPU.components.ALU.adders.Adder;
 import com.CPU.components.ALU.comparators.Comparator;
 import com.CPU.components.ALU.multipliers.Multiplier;
 import com.CPU.components.logicGates.LogicGate;
+import com.libraries.exceptions.InputAmountException;
+import com.libraries.exceptions.NonBinaryInputException;
 import com.libraries.utilityClasses.Binary;
 
 public abstract sealed class Component permits LogicGate, Adder, Multiplier, Comparator
@@ -51,15 +53,11 @@ public abstract sealed class Component permits LogicGate, Adder, Multiplier, Com
 	{
 		if( !Binary.isValid( input ) )
 		{
-			Binary.throwNonBinaryValuesError();
+			throw new NonBinaryInputException();
 		}
 		else if( input.length != NUMBER_OF_INPUTS )
 		{
-			throw new IllegalArgumentException
-			(
-				"number of input bits (%d) does not meet the component's (%s) requirements (%d)"
-				.formatted( input.length, this.getClass().getCanonicalName(), NUMBER_OF_INPUTS )
-			);
+			throw new InputAmountException( input.length, this );
 		}
 	}
 	

@@ -1,10 +1,8 @@
 package com.CPU.components.ALU.adders.oneBitInputs;
 
 import com.CPU.components.ALU.adders.Adder;
-import com.CPU.components.ALU.adders.oneBitInputs.full.AbstractFullAdder;
-import com.CPU.components.ALU.adders.oneBitInputs.half.AbstractHalfAdder;
 
-public abstract sealed class OneBitAdder extends Adder permits AbstractHalfAdder, AbstractFullAdder
+public abstract sealed class OneBitAdder extends Adder permits HalfAdder, FullAdder
 {
 	public static final int SUM = 1;
 

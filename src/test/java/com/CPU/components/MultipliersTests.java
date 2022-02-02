@@ -2,7 +2,7 @@ package com.CPU.components;
 
 import static org.junit.Assert.*;
 
-import com.CPU.components.ALU.multipliers.twoBit.TwoBitMultiplier;
+import com.CPU.components.ALU.multipliers.TwoBitMultiplier;
 import com.libraries.utilityClasses.Binary;
 
 import org.junit.Test;
@@ -16,7 +16,7 @@ public class MultipliersTests
 	{
 		for( int result = 0; result < Math.pow( 2, twoBitMultiplier.getNumberOfInputs() ); result++ )
 		{
-			byte[] bits = Binary.toBitArray( result, twoBitMultiplier.getNumberOfInputs() );
+			byte[] bits = Binary.toBitsArray( result, twoBitMultiplier.getNumberOfInputs() );
 			byte A1 = bits[ 0 ];
 			byte A0 = bits[ 1 ];
 			byte B1 = bits[ 2 ];

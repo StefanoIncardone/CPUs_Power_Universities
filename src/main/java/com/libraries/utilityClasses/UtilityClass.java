@@ -1,6 +1,6 @@
 package com.libraries.utilityClasses;
 
-public abstract sealed class UtilityClass permits Binary, Utilities, ArrayUtils
+public abstract sealed class UtilityClass permits Binary, ArrayUtils
 {
 	protected UtilityClass( Class<? extends UtilityClass> utilityClass )
 	{

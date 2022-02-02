@@ -1,9 +1,8 @@
 package com.CPU.components.ALU.multipliers;
 
 import com.CPU.components.Component;
-import com.CPU.components.ALU.multipliers.twoBit.AbstractTwoBitMultiplier;
 
-public abstract sealed class Multiplier extends Component permits AbstractTwoBitMultiplier
+public abstract sealed class Multiplier extends Component permits TwoBitMultiplier
 {
 	protected Multiplier( int numberOfInputs, int numberOfOutputs, String[] columnNames )
 	{
