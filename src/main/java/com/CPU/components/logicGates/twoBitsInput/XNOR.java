@@ -9,7 +9,7 @@ public final class XNOR extends TwoInputLogicGate
 	
 	public XNOR()
 	{
-		super( XNOR.class.getSimpleName() );
+		super( XNOR.class );
 	}
 	
 	@Override

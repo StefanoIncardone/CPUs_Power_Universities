@@ -4,11 +4,11 @@ public final class CONTRADICTION extends OneInputLogicGate
 {
 	public CONTRADICTION()
 	{
-		super( CONTRADICTION.class.getSimpleName() );
+		super( CONTRADICTION.class );
 	}
 
 	@Override
-	protected byte[] out( byte... input )
+	public byte[] out( byte... input )
 	{
 		validateInput( input );
 

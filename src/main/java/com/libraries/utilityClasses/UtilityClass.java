@@ -1,6 +1,7 @@
 package com.libraries.utilityClasses;
 
-public abstract sealed class UtilityClass permits Binary, ArrayUtils
+// TODO get rid of utility classes
+public abstract sealed class UtilityClass permits Binary
 {
 	protected UtilityClass( Class<? extends UtilityClass> utilityClass )
 	{

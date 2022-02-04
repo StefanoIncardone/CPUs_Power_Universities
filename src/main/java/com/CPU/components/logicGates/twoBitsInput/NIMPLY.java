@@ -9,7 +9,7 @@ public final class NIMPLY extends TwoInputLogicGate
 
 	public NIMPLY()
 	{
-		super( NIMPLY.class.getSimpleName() );
+		super( NIMPLY.class );
 	}
 	
 	@Override

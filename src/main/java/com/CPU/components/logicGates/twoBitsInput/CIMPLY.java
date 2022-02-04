@@ -6,7 +6,7 @@ public final class CIMPLY extends TwoInputLogicGate
 
 	public CIMPLY()
 	{
-		super( CIMPLY.class.getSimpleName() );
+		super( CIMPLY.class );
 	}
 	
 	@Override

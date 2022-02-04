@@ -9,7 +9,7 @@ public final class NAND extends TwoInputLogicGate
 
 	public NAND()
 	{
-		super( NAND.class.getSimpleName() );
+		super( NAND.class );
 	}
 	
 	@Override

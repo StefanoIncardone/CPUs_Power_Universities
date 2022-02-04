@@ -4,11 +4,11 @@ public final class NOT extends OneInputLogicGate
 {
 	public NOT()
 	{
-		super( NOT.class.getSimpleName() );
+		super( NOT.class );
 	}
 
 	@Override
-	protected byte[] out( byte... input )
+	public byte[] out( byte... input )
 	{
 		validateInput( input );
 

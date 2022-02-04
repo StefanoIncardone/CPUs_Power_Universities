@@ -9,7 +9,7 @@ public final class NOR extends TwoInputLogicGate
 
 	public NOR()
 	{
-		super( NOR.class.getSimpleName() );
+		super( NOR.class );
 	}
 	
 	@Override

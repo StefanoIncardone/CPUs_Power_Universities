@@ -4,11 +4,11 @@ public final class BUFFER extends OneInputLogicGate
 {
 	public BUFFER()
 	{
-		super( BUFFER.class.getSimpleName() );
+		super( BUFFER.class );
 	}
 
 	@Override
-	protected byte[] out( byte... input )
+	public byte[] out( byte... input )
 	{
 		validateInput( input );
 

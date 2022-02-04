@@ -2,13 +2,14 @@ package com.libraries.exceptions;
 
 import com.CPU.components.Component;
 
-public class InputAmountException extends IllegalArgumentException
+public final class InputAmountException extends ComponentInputException
 {
-	private static final String MESSAGE =
-		"number of input bits (%d) does not match the component's (%s) requirements (%d)";
-
-	public InputAmountException( int numberOfInputBits, Component gate )
+	public InputAmountException( int numberOfInputBits, Component component )
 	{
-		super( MESSAGE.formatted( numberOfInputBits, gate.getClass().getCanonicalName(), gate.getNumberOfInputs() ) );
+		super
+		(
+			"number of input bits (%d) does not match the component's (%s) requirements (%d)"
+				.formatted( numberOfInputBits, component.getClass().getCanonicalName(), component.getNumberOfInputs() )
+		);
 	}
 }

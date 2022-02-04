@@ -1,6 +1,6 @@
-package com.CPU.components;
+package com.libraries;
 
-import com.libraries.utilityClasses.ArrayUtils;
+import com.CPU.components.Component;
 import com.libraries.utilityClasses.Binary;
 
 public final class TruthTable
@@ -69,7 +69,7 @@ public final class TruthTable
 		
 		for( byte[] row : data )
 		{
-			createRow( ArrayUtils.toWrapper( row ) );
+			createRow( toWrapper( row ) );
 		}
 		
 		truthTable.append( rowSeparator );
@@ -96,5 +96,17 @@ public final class TruthTable
 		rowSeparator.setCharAt( rowSeparator.length() - 1, '\n' );
 
 		return rowSeparator.toString();
+	}
+
+	private Byte[] toWrapper( byte[] values )
+	{
+		Byte[] bytes = new Byte[ values.length ];
+
+		for( int index = 0; index < values.length; index++ )
+		{
+			bytes[ index ] = values[ index ];
+		}
+
+		return bytes;
 	}
 }

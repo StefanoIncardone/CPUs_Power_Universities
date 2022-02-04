@@ -8,7 +8,7 @@ public final class XOR extends TwoInputLogicGate
 
 	public XOR()
 	{
-		super( XOR.class.getSimpleName() );
+		super( XOR.class );
 	}
 	
 	@Override

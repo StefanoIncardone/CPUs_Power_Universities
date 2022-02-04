@@ -4,7 +4,7 @@ public final class OR extends TwoInputLogicGate
 {
 	public OR()
 	{
-		super( OR.class.getSimpleName() );
+		super( OR.class );
 	}
 	
 	@Override

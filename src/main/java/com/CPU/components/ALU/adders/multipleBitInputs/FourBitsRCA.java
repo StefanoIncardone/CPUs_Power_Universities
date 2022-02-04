@@ -59,7 +59,7 @@ public final class FourBitsRCA extends RippleCarryAdder
 	}
 
 	@Override
-	protected byte[] out( byte... inputs )
+	public byte[] out( byte... inputs )
 	{
 		validateInput( inputs );
 

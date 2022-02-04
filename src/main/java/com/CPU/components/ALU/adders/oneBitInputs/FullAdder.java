@@ -31,7 +31,7 @@ public final class FullAdder extends OneBitAdder
 	}
 
 	@Override
-	protected byte[] out( byte... inputs )
+	public byte[] out( byte... inputs )
 	{
 		validateInput( inputs );
 

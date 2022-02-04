@@ -8,9 +8,9 @@ public abstract sealed class OneInputLogicGate extends LogicGate permits BUFFER,
 
 	private static final int NUMBER_OF_INPUTS = 1;
 
-	protected OneInputLogicGate( String gateName )
+	protected OneInputLogicGate( Class<? extends OneInputLogicGate> gate )
 	{
-		super( NUMBER_OF_INPUTS, new String[]{ "A", gateName + " A" } );
+		super( NUMBER_OF_INPUTS, new String[]{ "A", gate.getSimpleName() + " A" } );
 	}
 
 	public final byte out( byte A )

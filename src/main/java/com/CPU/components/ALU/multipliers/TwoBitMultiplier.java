@@ -46,7 +46,7 @@ public final class TwoBitMultiplier extends Multiplier
 	}
 
 	@Override
-	protected byte[] out( byte... inputs )
+	public byte[] out( byte... inputs )
 	{
 		validateInput( inputs );
 

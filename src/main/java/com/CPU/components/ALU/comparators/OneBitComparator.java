@@ -50,7 +50,7 @@ public final class OneBitComparator extends Comparator
 	}
 
 	@Override
-	protected byte[] out( byte... inputs )
+	public byte[] out( byte... inputs )
 	{
 		validateInput( inputs );
 

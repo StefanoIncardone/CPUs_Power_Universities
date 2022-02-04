@@ -6,7 +6,7 @@ public final class CNIMPLY extends TwoInputLogicGate
 
 	public CNIMPLY()
 	{
-		super( CNIMPLY.class.getSimpleName() );
+		super( CNIMPLY.class );
 	}
 	
 	@Override

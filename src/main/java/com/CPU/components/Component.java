@@ -4,6 +4,7 @@ import com.CPU.components.ALU.adders.Adder;
 import com.CPU.components.ALU.comparators.Comparator;
 import com.CPU.components.ALU.multipliers.Multiplier;
 import com.CPU.components.logicGates.LogicGate;
+import com.libraries.TruthTable;
 import com.libraries.exceptions.InputAmountException;
 import com.libraries.exceptions.NonBinaryInputException;
 import com.libraries.utilityClasses.Binary;
@@ -61,5 +62,5 @@ public abstract sealed class Component permits LogicGate, Adder, Multiplier, Com
 		}
 	}
 	
-	protected abstract byte[] out( byte... inputs );
+	public abstract byte[] out( byte... inputs );
 }

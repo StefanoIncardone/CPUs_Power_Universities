@@ -11,9 +11,9 @@ public abstract sealed class TwoInputLogicGate extends LogicGate
 
 	private static final int NUMBER_OF_INPUTS = 2;
 
-	protected TwoInputLogicGate( String gateName )
+	protected TwoInputLogicGate( Class<? extends TwoInputLogicGate> gate )
 	{
-		super( NUMBER_OF_INPUTS, new String[]{ "A", "B", "A " + gateName + " B" } );
+		super( NUMBER_OF_INPUTS, new String[]{ "A", "B", "A " + gate.getSimpleName() + " B" } );
 	}
 
 	public final byte out( byte A, byte B )

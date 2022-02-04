@@ -4,7 +4,7 @@ public final class AND extends TwoInputLogicGate
 {
 	public AND()
 	{
-		super( AND.class.getSimpleName() );
+		super( AND.class );
 	}
 	
 	@Override

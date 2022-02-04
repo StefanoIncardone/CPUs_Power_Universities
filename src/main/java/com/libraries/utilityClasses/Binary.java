@@ -2,6 +2,7 @@ package com.libraries.utilityClasses;
 
 import com.libraries.exceptions.NonBinaryInputException;
 
+// TODO repurpose to BinaryNumber
 public final class Binary extends UtilityClass
 {
 	private static final int ASCII_NUMBER_OFFSET = 48;
@@ -12,7 +13,7 @@ public final class Binary extends UtilityClass
 		super( Binary.class );
 	}
 
-	public static String toString( byte[] bits )
+	public static int toInteger( byte... bits )
 	{
 		if( !isValid( bits ) )
 		{
@@ -20,14 +21,14 @@ public final class Binary extends UtilityClass
 		}
 		else
 		{
-			return ArrayUtils.toStringConcat( bits );
+			StringBuilder value = new StringBuilder();
+			for( byte bit : bits )
+			{
+				value.append( bit );
+			}
+
+			return Integer.valueOf( value.toString(), 2 );
 		}
-	}
-
-	public static int toInteger( byte... bits )
-	{
-
-		return Integer.valueOf( toString( bits ), 2 );
 	}
 
 	public static byte[] toBitsArray( int value, int numberOfBits )

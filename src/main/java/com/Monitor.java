@@ -62,7 +62,6 @@ public class Monitor
 	{
 		for( Component component : COMPONENTS )
 		{
-			System.out.println( "\n" + component.getClass().getCanonicalName() + "\n" );
 			System.out.println
 			(
 																			"\n" +

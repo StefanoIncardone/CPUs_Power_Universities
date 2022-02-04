@@ -9,7 +9,7 @@ public final class IMPLY extends TwoInputLogicGate
 
 	public IMPLY()
 	{
-		super( IMPLY.class.getSimpleName() );
+		super( IMPLY.class );
 	}
 	
 	@Override

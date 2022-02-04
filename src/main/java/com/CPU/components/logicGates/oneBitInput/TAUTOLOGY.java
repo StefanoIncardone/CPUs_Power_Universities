@@ -4,11 +4,11 @@ public final class TAUTOLOGY extends OneInputLogicGate
 {
 	public TAUTOLOGY()
 	{
-		super( TAUTOLOGY.class.getSimpleName() );
+		super( TAUTOLOGY.class );
 	}
 
 	@Override
-	protected byte[] out( byte... input )
+	public byte[] out( byte... input )
 	{
 		validateInput( input );
 
