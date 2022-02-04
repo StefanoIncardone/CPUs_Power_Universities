@@ -54,7 +54,7 @@ public abstract sealed class Component permits LogicGate, Adder, Multiplier, Com
 	{
 		if( !Binary.isValid( input ) )
 		{
-			throw new IllegalArgumentException( "input contains non-binary numbers (0/1)" );
+			throw new NonBinaryNumberException();
 		}
 		else if( input.length != NUMBER_OF_INPUTS )
 		{
