@@ -1,7 +1,7 @@
 package com.libraries.exceptions;
 
 public abstract sealed class ComponentInputException extends IllegalArgumentException
-	permits InputAmountException, NonBinaryInputException
+	permits InputAmountException, NonBinaryNumberException, BitLengthException
 {
 	private final String MESSAGE;
 

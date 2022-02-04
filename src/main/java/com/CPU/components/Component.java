@@ -6,7 +6,7 @@ import com.CPU.components.ALU.multipliers.Multiplier;
 import com.CPU.components.logicGates.LogicGate;
 import com.libraries.TruthTable;
 import com.libraries.exceptions.InputAmountException;
-import com.libraries.exceptions.NonBinaryInputException;
+import com.libraries.exceptions.NonBinaryNumberException;
 import com.libraries.utilityClasses.Binary;
 
 public abstract sealed class Component permits LogicGate, Adder, Multiplier, Comparator
@@ -54,7 +54,7 @@ public abstract sealed class Component permits LogicGate, Adder, Multiplier, Com
 	{
 		if( !Binary.isValid( input ) )
 		{
-			throw new NonBinaryInputException();
+			throw new IllegalArgumentException( "input contains non-binary numbers (0/1)" );
 		}
 		else if( input.length != NUMBER_OF_INPUTS )
 		{

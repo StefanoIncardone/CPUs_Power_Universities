@@ -1,6 +1,6 @@
 package com.libraries.utilityClasses;
 
-import com.libraries.exceptions.NonBinaryInputException;
+import com.libraries.exceptions.NonBinaryNumberException;
 
 // TODO repurpose to BinaryNumber
 public final class Binary extends UtilityClass
@@ -17,7 +17,7 @@ public final class Binary extends UtilityClass
 	{
 		if( !isValid( bits ) )
 		{
-			throw new NonBinaryInputException();
+			throw new NonBinaryNumberException();
 		}
 		else
 		{
